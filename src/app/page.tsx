@@ -1,4 +1,9 @@
+"use client"
 import Link from "next/link"
+import * as Sentry from "@sentry/nextjs"
+function err() {
+  throw new Error()
+}
 export default function Home() {
   return (
     <div className="bg-black bg-home-img bg-cover bg-center">
@@ -13,6 +18,22 @@ export default function Home() {
           <Link href="tel:555555555" className="hover:underline">
             555-555-5555
           </Link>
+          <button
+            type="button"
+            style={{
+              padding: "12px",
+              cursor: "pointer",
+              backgroundColor: "#AD6CAA",
+              borderRadius: "4px",
+              border: "none",
+              color: "white",
+              fontSize: "14px",
+              margin: "18px"
+            }}
+            onClick={err}
+          >
+            Throw error!
+          </button>
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
